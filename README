@@ -1,8 +1,8 @@
 NAME
     App::perl::highlight - Syntax highlight your source code
 
-VERSION
-    version 0.001
+SYNOPSIS
+    perl -Ilib ./bin/perl-highlight < ./lib/App/perl/highlight.pm | less -R
 
 AVAILABILITY
     The development version lives at
