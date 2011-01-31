@@ -12,7 +12,7 @@ sub new {
     return bless $self, $class;
 }
 
-# perl -MText::Highlight -E '$h=Text::Highlight->new(ansi=>1); my $text=do{local $/; open my $fh, "<", "00-load.t"; <$fh>}; say $h->highlight("Perl", $text);'
+# perl -MText::Highlight -E '$h=Text::Highlight->new(ansi=>1); my $text=do{local $/; open my $fh, "<", $ARGV[0]; <$fh>}; say $h->highlight("Perl", $text);'
 sub run {
     my $self = shift;
     my $opts = shift;
