@@ -1,0 +1,31 @@
+NAME
+    App::perl::highlight - Syntax highlight your source code
+
+VERSION
+    version 0.001
+
+AVAILABILITY
+    The development version lives at
+    <http://github.com/doherty/App-perl-highlight> and may be cloned from
+    <git://github.com/doherty/App-perl-highlight.git>. Instead of sending
+    patches, please fork this project using the standard git and github
+    infrastructure.
+
+BUGS AND LIMITATIONS
+    Please help me improve readability in the terminal, the colours used
+    currently are perhaps not ideal.
+
+    No bugs have been reported.
+
+    Please report any bugs or feature requests through the web interface at
+    <http://github.com/doherty/App-syntax-highlight/issues>.
+
+AUTHOR
+    Mike Doherty <doherty@cpan.org>
+
+COPYRIGHT AND LICENSE
+    This software is copyright (c) 2011 by Mike Doherty.
+
+    This is free software; you can redistribute it and/or modify it under
+    the same terms as the Perl 5 programming language system itself.
+

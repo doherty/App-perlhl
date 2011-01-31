@@ -1,4 +1,4 @@
-Revision history for Perl module App-syntax-highlight
+Revision history for Perl module App-perl-highlight
 
 {{$NEXT}}
-    *
+    * Initial experimental implementation
