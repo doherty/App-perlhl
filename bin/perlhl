@@ -23,8 +23,8 @@ pod2usage(
 
 =head1 SYNOPSIS
 
-    perlhl < file.pl | less -R
-    perlhl script.pl lib/My/Module.pm
+    perlhl < bin/perlhl | less -R
+    perlhl bin/perlhl lib/App/perlhl.pm
 
 =head1 DESCRIPTION
 
@@ -76,6 +76,10 @@ Output HMTL fragment instead of ANSI terminal escapes.
 =item * L<Text::Highlight>
 
 =back
+
+There is a one-liner that can do something comparable:
+
+    perl -MText::Highlight -E '$h=Text::Highlight->new(ansi=>1); my $text=do{local $/; open my $fh, "<", $ARGV[0]; <$fh>}; say $h->highlight("Perl", $text);' bin/perlhl
 
 =cut
 
