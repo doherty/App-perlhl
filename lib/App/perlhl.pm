@@ -1,29 +1,49 @@
-use perl5i::2;
+use strict;
+use warnings;
+use 5.010100;
 
-use Syntax::Highlight::Perl::Improved;
+package App::perlhl;
+# ABSTRACT: application class for syntax highlighting Perl source code
 
-package App::perl::highlight;
-# ABSTRACT: Syntax highlight your source code
+use autodie qw(open close);
+use Carp ();
+use Syntax::Highlight::Perl::Improved 1.01 ();
+use Term::ANSIColor 3.00 ();
+
+=head1 SYNOPSIS
+
+    use App::perlhl;
+    App::perlhl->new({})->run({}, \@ARGV);
+
+=head1 DESCRIPTION
+
+B<App::perlhl> is the application class backing L<perlhl>.
+
+=head1 METHODS
+
+=head2 new
+
+This instantiates a new App::perlhl object. It takes a hashref
+of options:
+
+=over 4
+
+=item * html
+
+If true, the output will be an HTML fragment suitable for publishing as part
+of a web page. B<NOTE:> In the future, this might output a whole valid document.
+
+=back
+
+The default is to output ANSI colour codes suitable for printing to any
+reasonable shell or terminal (which probably means you have the one that'll
+break -- well it works on mine, so neener neener).
+
+=cut
 
 sub new {
     my $class = shift;
-
-    my $self = {};
-    return bless $self, $class;
-}
-
-# perl -MText::Highlight -E '$h=Text::Highlight->new(ansi=>1); my $text=do{local $/; open my $fh, "<", $ARGV[0]; <$fh>}; say $h->highlight("Perl", $text);'
-sub run {
-    my $self = shift;
-    my $opts = shift;
-    my $args = shift;
-
-    if ($opts->{version}) {
-        require File::Basename;
-        my $this = File::Basename::basename($0); # __PACKAGE__?
-        my $this_ver = (defined __PACKAGE__->VERSION ? __PACKAGE__->VERSION : 'dev');
-        say "$this version $this_ver" and exit;
-    }
+    my $opts  = shift;
 
     my $formatter = Syntax::Highlight::Perl::Improved->new();
     if ($opts->{html}) {
@@ -56,15 +76,11 @@ sub run {
                                         '&' => '&amp;');
 
         # install the formats set up above
-        while ( my ( $type, $style ) = each %{$color_table} ) {
-            $formatter->set_format( $type, [ qq{<span style="$style">}, qq{</span>} ] );
+        while ( my($type, $style) = each %{$color_table} ) {
+            $formatter->set_format($type, [ qq{<span style="$style">}, qq{</span>} ]);
         }
     }
     else {
-        require Term::ANSIColor;
-        Carp::croak 'This requires Term::ANSIColor 3.0'
-            unless $Term::ANSIColor::VERSION >= 3.00;
-
         my $color_table = { # Readability is not so good -- play with it more
             'Bareword'          => 'bright_green',
             'Builtin_Function'  => 'blue',
@@ -91,11 +107,60 @@ sub run {
 
         # install the formats set up above
         while ( my ( $type, $style ) = each %{$color_table} ) {
-            $formatter->set_format( $type, [ Term::ANSIColor::color($style), Term::ANSIColor::color('reset') ] );
+            $formatter->set_format($type, [ Term::ANSIColor::color($style), Term::ANSIColor::color('reset') ]);
         }
     }
 
-    while (<STDIN>) {
-        print $formatter->format_string;
+    return bless { formatter => $formatter }, $class;
+}
+
+=head2 run
+
+Unsurprisingly, this runs the application. The method takes a hashref of options,
+and an arrayref of filenames to highlight. If there are no filenames, defaults to
+C<STDIN>.
+
+=head2 Options
+
+=over 4
+
+=item * version
+
+If present, the application will print version data and exit.
+
+=back
+
+=cut
+
+sub run {
+    my $self = shift;
+    my $opts = shift;
+    my $argv = shift;
+
+    if ($opts->{version}) {
+        require File::Basename;
+        my $this = File::Basename::basename($0); # __PACKAGE__?
+        my $this_ver = (defined __PACKAGE__->VERSION ? __PACKAGE__->VERSION : 'dev');
+        say "$this version $this_ver" and exit;
+    }
+
+    if (@$argv) {
+        while (my $filename = shift(@$argv)) {
+            open my $in, '<', $filename;
+            # Use a separate object for each file - otherwise,
+            # highlighting for anything after the first file
+            # will be suboptimal.
+            my $formatter = $self->{formatter}->new();
+            while (<$in>) {
+                print $formatter->format_string;
+            }
+        }
+    }
+    else {
+        while (<STDIN>) {
+            print $self->{formatter}->format_string;
+        }
     }
 }
+
+1;

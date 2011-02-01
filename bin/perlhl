@@ -1,0 +1,82 @@
+#!perl
+use strict;
+use warnings;
+use 5.010100;
+
+package perlhl;
+# ABSTRACT: command-line syntax highlighter for Perl source code
+
+require App::perlhl;
+use Getopt::Long;
+use Pod::Usage;
+
+my %opts = ();
+GetOptions( \%opts,
+    'help|?',
+    'version',
+    'html',
+);
+
+pod2usage(
+    -verbose => 2,
+) if $opts{'help'};
+
+=head1 SYNOPSIS
+
+    perlhl < file.pl | less -R
+    perlhl script.pl lib/My/Module.pm
+
+=head1 DESCRIPTION
+
+B<perlhl> is a command line syntax highlighter for Perl code.
+
+=head1 USE
+
+Provide input on stdin to B<perlhl> to highlight it to stdout with ANSI colour
+escapes.
+
+    perlhl < script.pl
+
+It is not recommended to provide multiple files on stdout, since they'll be
+concatenated. This makes it impossible to know where one ends and the next
+begins, and will yield inferior syntax highlighting results. To highlight
+multiple files, provide filenames on the command line:
+
+    perlhl lib/My/Module.pm lib/My/Module/Again.pm
+
+Provide the B<--html> option to output an HTML fragment. In
+the future, this option might print a whole valid document.
+
+=head1 OPTIONS
+
+=over 4
+
+=item B<--help>, -h, -?
+
+Opens this man page and exits.
+
+=item B<--version>
+
+Prints the version of this program and supporting libraries.
+
+=item B<--html>
+
+Output HMTL fragment instead of ANSI terminal escapes.
+
+=back
+
+=head1 SEE ALSO
+
+=over 4
+
+=item * L<Syntax::Highlight::Perl::Improved>
+
+=item * L<Term::ANSIColor>
+
+=item * L<Text::Highlight>
+
+=back
+
+=cut
+
+App::perlhl->new(\%opts)->run(\%opts, \@ARGV);
