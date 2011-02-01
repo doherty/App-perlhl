@@ -145,7 +145,7 @@ sub run {
     }
 
     if (@$argv) {
-        while (my $filename = shift(@$argv)) {
+        foreach my $filename (@$argv) {
             open my $in, '<', $filename;
             # Use a separate object for each file - otherwise,
             # highlighting for anything after the first file
