@@ -1,11 +1,8 @@
 #!perl
-use strict;
-use warnings;
-use 5.010100;
-
 package perlhl;
 # ABSTRACT: command-line syntax highlighter for Perl source code
-
+# VERSION
+use perl5i::2;
 require App::perlhl;
 use Getopt::Long;
 use Pod::Usage;

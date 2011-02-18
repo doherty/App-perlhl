@@ -2,7 +2,7 @@
 use strict;
 use warnings;
 
-BEGIN { require 5.010100; }
+BEGIN { require 5.006; }
 
 use ExtUtils::MakeMaker 6.31;
 
@@ -33,7 +33,8 @@ my %WriteMakefileArgs = (
     'Pod::Usage' => '0',
     'Syntax::Highlight::Perl::Improved' => '1.01',
     'Term::ANSIColor' => '3.00',
-    'autodie' => '0'
+    'autodie' => '0',
+    'perl5i::2' => '0'
   },
   'VERSION' => '0.002',
   'test' => {

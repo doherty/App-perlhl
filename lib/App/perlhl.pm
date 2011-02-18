@@ -1,11 +1,7 @@
 package App::perlhl;
 # ABSTRACT: application class for syntax highlighting Perl source code
-use strict;
-use warnings;
-use 5.010100;
-#VERSION
-use autodie qw(open close);
-use Carp ();
+# VERSION
+use perl5i::2;
 use Syntax::Highlight::Perl::Improved 1.01 ();
 use Term::ANSIColor 3.00 ();
 
@@ -40,10 +36,7 @@ break -- well it works on mine, so neener neener).
 
 =cut
 
-sub new {
-    my $class = shift;
-    my $opts  = shift;
-
+method new($class: $opts) {
     my $formatter = Syntax::Highlight::Perl::Improved->new();
     if ($opts->{html}) {
         my $color_table = {
@@ -131,11 +124,7 @@ If present, the application will print version data and exit.
 
 =cut
 
-sub run {
-    my $self = shift;
-    my $opts = shift;
-    my $argv = shift;
-
+method run($opts, $argv) {
     if ($opts->{version}) {
         require File::Basename;
         my $this = File::Basename::basename($0); # __PACKAGE__?
