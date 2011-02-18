@@ -1,10 +1,9 @@
+package App::perlhl;
+# ABSTRACT: application class for syntax highlighting Perl source code
 use strict;
 use warnings;
 use 5.010100;
-
-package App::perlhl;
-# ABSTRACT: application class for syntax highlighting Perl source code
-
+#VERSION
 use autodie qw(open close);
 use Carp ();
 use Syntax::Highlight::Perl::Improved 1.01 ();
