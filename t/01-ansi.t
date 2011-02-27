@@ -9,7 +9,7 @@ my $data = do { local $/; <DATA> };
 stdout_is \&doit, $data, 'Got our expected output';
 
 sub doit {
-    App::perlhl->new()->run({}, ['t/testfile']);
+    App::perlhl->new('ansi')->run('highlight', ('t/testfile'));
 }
 
 __DATA__

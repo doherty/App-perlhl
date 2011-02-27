@@ -80,4 +80,13 @@ There is a one-liner that can do something comparable:
 
 =cut
 
-App::perlhl->new(\%opts)->run(\%opts, \@ARGV);
+if (delete $opts{version}) {
+    my $this = __PACKAGE__;
+    my $this_ver = (defined __PACKAGE__->VERSION ? __PACKAGE__->VERSION : 'dev');
+    say "$this version $this_ver" and exit;
+}
+
+my $mode = (delete $opts{version} ? 'version' : 'highlight');
+my $html =  delete $opts{html};
+
+App::perlhl->new($html)->run($mode, @ARGV);

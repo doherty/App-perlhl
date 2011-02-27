@@ -7,5 +7,5 @@ BEGIN {
 }
 
 new_ok('App::perlhl');
-my $highlighter = new_ok('App::perlhl' => [{html => 1}], 'html works');
+my $highlighter = new_ok('App::perlhl' => ['html'], 'html works');
 can_ok($highlighter, qw(new run));

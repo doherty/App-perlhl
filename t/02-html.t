@@ -9,7 +9,7 @@ my $data = do { local $/; <DATA> };
 stdout_is \&doit, $data, 'Got our expected output';
 
 sub doit {
-    App::perlhl->new({html => 1})->run({}, ['t/testfile']);
+    App::perlhl->new('html')->run(undef, ('t/testfile'));
 }
 
 __DATA__
