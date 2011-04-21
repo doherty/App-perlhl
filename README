@@ -2,7 +2,7 @@ NAME
     App::perlhl - application class for syntax highlighting Perl source code
 
 VERSION
-    version 0.001
+    version 0.002
 
 SYNOPSIS
         use App::perlhl;
@@ -37,6 +37,8 @@ METHODS
         If present, the application will print version data and exit.
 
 AVAILABILITY
+    The project homepage is <http://p3rl.org/App::perlhl>.
+
     The latest version of this module is available from the Comprehensive
     Perl Archive Network (CPAN). Visit <http://www.perl.com/CPAN/> to find a
     CPAN site near you, or see <http://search.cpan.org/dist/App-perlhl/>.
@@ -55,7 +57,7 @@ BUGS AND LIMITATIONS
     No bugs have been reported.
 
     Please report any bugs or feature requests through the web interface at
-    <http://github.com/doherty/App-perlhl/issues>.
+    <https://github.com/doherty/App-perlhl/issues>.
 
 AUTHOR
     Mike Doherty <doherty@cpan.org>

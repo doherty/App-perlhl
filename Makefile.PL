@@ -27,13 +27,10 @@ my %WriteMakefileArgs = (
   'LICENSE' => 'perl',
   'NAME' => 'App::perlhl',
   'PREREQ_PM' => {
-    'Carp' => '0',
-    'File::Basename' => '0',
     'Getopt::Long' => '0',
     'Pod::Usage' => '0',
     'Syntax::Highlight::Perl::Improved' => '1.01',
     'Term::ANSIColor' => '3.00',
-    'autodie' => '0',
     'perl5i::2' => '0'
   },
   'VERSION' => '0.002',
