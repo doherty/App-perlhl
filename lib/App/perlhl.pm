@@ -1,7 +1,7 @@
 package App::perlhl;
+use perl5i::2;
 # ABSTRACT: application class for syntax highlighting Perl source code
 # VERSION
-use perl5i::2;
 use Syntax::Highlight::Perl::Improved 1.01 ();
 use Term::ANSIColor 3.00 ();
 
