@@ -1,6 +1,7 @@
 Revision history for Perl module App-perlhl
 
 {{$NEXT}}
+    * Clean up internals
 
 0.001     2011-02-01
     * Initial experimental implementation
