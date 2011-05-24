@@ -1,4 +1,4 @@
-#!perl
+#!/usr/bin/env perl
 package perlhl;
 # ABSTRACT: command-line syntax highlighter for Perl source code
 # VERSION
@@ -16,7 +16,7 @@ GetOptions( \%opts,
 
 pod2usage(
     -verbose => 2,
-) if $opts{'help'};
+) if $opts{help};
 
 =head1 SYNOPSIS
 
@@ -86,7 +86,7 @@ if (delete $opts{version}) {
     say "$this version $this_ver" and exit;
 }
 
-my $mode = (delete $opts{version} ? 'version' : 'highlight');
-my $html =  delete $opts{html};
+my $mode    = delete $opts{version} ? 'version' : 'highlight';
+my $output  = delete $opts{html}    ? 'html'    : 'ansi';
 
-App::perlhl->new($html)->run($mode, @ARGV);
+App::perlhl->new($output)->run($mode, @ARGV);

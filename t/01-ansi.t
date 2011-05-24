@@ -1,16 +1,16 @@
-use strict;
-use warnings;
-use Test::More tests => 1;
-use Test::Output qw(:stdout);
+use perl5i::2;
+use Test::More tests => 2;
 use App::perlhl;
 
-my $data = do { local $/; <DATA> };
+my $expected = do { local $/; <DATA> };
 
-stdout_is \&doit, $data, 'Got our expected output';
+my $capture = capture {
+    App::perlhl->new('ansi')->run('highlight', ('t/testfile'))
+};
+is $capture, $expected, 'ANSI highlighting done right';
 
-sub doit {
-    App::perlhl->new('ansi')->run('highlight', ('t/testfile'));
-}
+my $system = `$^X bin/perlhl t/testfile 2>&1`;
+is $system, $expected, 'perlhl does the same thing';
 
 __DATA__
 [1;90m#!/usr/bin/env perl[0m

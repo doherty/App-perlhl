@@ -38,6 +38,7 @@ break -- well it works on mine, so neener neener).
 
 method new($class: $output) {
     my $formatter = Syntax::Highlight::Perl::Improved->new();
+    $output ||= 'ansi';
     given ($output) {
         when ('html') {
             my $color_table = {
