@@ -1,6 +1,8 @@
 Revision history for Perl module App-perlhl
 
 {{$NEXT}}
+
+0.003     2011-05-24
     * Fix total borkenness [Nadim Khemir]
 
 0.002     2011-04-21
