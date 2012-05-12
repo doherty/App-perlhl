@@ -2,7 +2,7 @@ NAME
     App::perlhl - application class for syntax highlighting Perl source code
 
 VERSION
-    version 0.003
+    version 0.004
 
 SYNOPSIS
         use App::perlhl;
@@ -41,12 +41,7 @@ AVAILABILITY
 
     The latest version of this module is available from the Comprehensive
     Perl Archive Network (CPAN). Visit <http://www.perl.com/CPAN/> to find a
-    CPAN site near you, or see <http://search.cpan.org/dist/App-perlhl/>.
-
-    The development version lives at <http://github.com/doherty/App-perlhl>
-    and may be cloned from <git://github.com/doherty/App-perlhl.git>.
-    Instead of sending patches, please fork this project using the standard
-    git and github infrastructure.
+    CPAN site near you, or see <https://metacpan.org/module/App::perlhl/>.
 
 SOURCE
     The development version is on github at
@@ -54,10 +49,8 @@ SOURCE
     <git://github.com/doherty/App-perlhl.git>
 
 BUGS AND LIMITATIONS
-    No bugs have been reported.
-
-    Please report any bugs or feature requests through the web interface at
-    <https://github.com/doherty/App-perlhl/issues>.
+    You can make new bug reports, and view existing ones, through the web
+    interface at <https://github.com/doherty/App-perlhl/issues>.
 
 AUTHOR
     Mike Doherty <doherty@cpan.org>

@@ -2,39 +2,44 @@
 use strict;
 use warnings;
 
-BEGIN { require 5.006; }
+use 5.010001;
 
 use ExtUtils::MakeMaker 6.30;
 
 
 
 my %WriteMakefileArgs = (
-  'ABSTRACT' => 'application class for syntax highlighting Perl source code',
-  'AUTHOR' => 'Mike Doherty <doherty@cpan.org>',
-  'BUILD_REQUIRES' => {
-    'File::Find' => '0',
-    'File::Temp' => '0',
-    'Test::More' => '0'
+  "ABSTRACT" => "application class for syntax highlighting Perl source code",
+  "AUTHOR" => "Mike Doherty <doherty\@cpan.org>",
+  "BUILD_REQUIRES" => {
+    "File::Find" => 0,
+    "File::Temp" => 0,
+    "Module::Build" => "0.3601",
+    "Test::More" => 0,
+    "Test::Output" => 0,
+    "open" => 0
   },
-  'CONFIGURE_REQUIRES' => {
-    'ExtUtils::MakeMaker' => '6.30'
+  "CONFIGURE_REQUIRES" => {
+    "ExtUtils::MakeMaker" => "6.30",
+    "Module::Build" => "0.3601"
   },
-  'DISTNAME' => 'App-perlhl',
-  'EXE_FILES' => [
-    'bin/perlhl'
+  "DISTNAME" => "App-perlhl",
+  "EXE_FILES" => [
+    "bin/perlhl"
   ],
-  'LICENSE' => 'perl',
-  'NAME' => 'App::perlhl',
-  'PREREQ_PM' => {
-    'Getopt::Long' => '0',
-    'Pod::Usage' => '0',
-    'Syntax::Highlight::Perl::Improved' => '1.01',
-    'Term::ANSIColor' => '3.00',
-    'perl5i::2' => '0'
+  "LICENSE" => "perl",
+  "NAME" => "App::perlhl",
+  "PREREQ_PM" => {
+    "Getopt::Long" => 0,
+    "Pod::Usage" => 0,
+    "Syntax::Highlight::Perl::Improved" => "1.01",
+    "Term::ANSIColor" => "3.00",
+    "strict" => 0,
+    "warnings" => 0
   },
-  'VERSION' => '0.003',
-  'test' => {
-    'TESTS' => 't/*.t'
+  "VERSION" => "0.004",
+  "test" => {
+    "TESTS" => "t/*.t"
   }
 );
 
