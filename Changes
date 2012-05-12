@@ -1,6 +1,8 @@
 Revision history for Perl module App-perlhl
 
 {{$NEXT}}
+
+0.004     2012-05-12
     * Remove perl5i
 
 0.003     2011-05-24
