@@ -1,14 +1,16 @@
-use perl5i::2;
+use strict;
+use warnings;
+use Test::Output qw(stdout_is);
 use Test::More tests => 2;
 use App::perlhl;
 
 my $expected = do { local $/; <DATA> };
 
-my $capture = capture {
-    App::perlhl->new('html')->run(undef, ('t/testfile'))
-};
-
-is $capture, $expected, 'HTML highlighting was done right';
+stdout_is(
+    sub { App::perlhl->new('html')->run(undef, ('t/testfile')) },
+    $expected,
+    'HTML highlighting was done right'
+);
 
 my $system = `$^X bin/perlhl --html t/testfile 2>&1`;
 is $system, $expected, 'perlhl does the same thing';

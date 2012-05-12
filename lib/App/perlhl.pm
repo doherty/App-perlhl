@@ -1,9 +1,12 @@
 package App::perlhl;
-use perl5i::2;
-# ABSTRACT: application class for syntax highlighting Perl source code
-# VERSION
+use strict;
+use warnings;
+use v5.10.1;
 use Syntax::Highlight::Perl::Improved 1.01 ();
 use Term::ANSIColor 3.00 ();
+
+# ABSTRACT: application class for syntax highlighting Perl source code
+# VERSION
 
 =head1 SYNOPSIS
 
@@ -36,9 +39,11 @@ break -- well it works on mine, so neener neener).
 
 =cut
 
-method new($class: $output) {
+sub new {
+    my $class = shift;
+    my $output= shift || 'ansi';
+
     my $formatter = Syntax::Highlight::Perl::Improved->new();
-    $output ||= 'ansi';
     given ($output) {
         when ('html') {
             my $color_table = {
@@ -127,7 +132,11 @@ If present, the application will print version data and exit.
 
 =cut
 
-method run($mode, @files) {
+sub run {
+    my $self  = shift;
+    my $mode  = shift;
+    my @files = @_;
+
     given ($mode) {
         when ('version')    { $self->_do_version(); }
         when ('highlight')  { $self->_do_highlighting(@files); }
@@ -135,13 +144,16 @@ method run($mode, @files) {
     }
 }
 
-method _do_version() {
+sub _do_version {
     my $this = __PACKAGE__;
     my $this_ver = (defined __PACKAGE__->VERSION ? __PACKAGE__->VERSION : 'dev');
     say "$this version $this_ver" and exit;
 }
 
-method _do_highlighting(@files) {
+sub _do_highlighting {
+    my $self  = shift;
+    my @files = @_;
+
     if (@files) {
         foreach my $filename (@files) {
             open my $in, '<', $filename;
@@ -156,7 +168,9 @@ method _do_highlighting(@files) {
     }
     else {
         while (<STDIN>) {
-            print $self->{formatter}->format_string;
+            print $self->{formatter}->format_string while (<STDIN>);
         }
     }
 }
+
+1;

@@ -1,13 +1,17 @@
-use perl5i::2;
+use strict;
+use warnings;
+use open qw(:std :encoding(UTF-8));
+use Test::Output qw(stdout_is);
 use Test::More tests => 2;
 use App::perlhl;
 
 my $expected = do { local $/; <DATA> };
 
-my $capture = capture {
-    App::perlhl->new('ansi')->run('highlight', ('t/testfile'))
-};
-is $capture, $expected, 'ANSI highlighting done right';
+stdout_is(
+    sub { App::perlhl->new('ansi')->run('highlight', ('t/testfile')) },
+    $expected,
+    'ANSI highlighting done right'
+);
 
 my $system = `$^X bin/perlhl t/testfile 2>&1`;
 is $system, $expected, 'perlhl does the same thing';

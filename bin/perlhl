@@ -1,11 +1,14 @@
 #!/usr/bin/env perl
 package perlhl;
-# ABSTRACT: command-line syntax highlighter for Perl source code
-# VERSION
-use perl5i::2;
-require App::perlhl;
+use strict;
+use warnings;
+use v5.10.1;
+use App::perlhl;
 use Getopt::Long;
 use Pod::Usage;
+
+# ABSTRACT: command-line syntax highlighter for Perl source code
+# VERSION
 
 my %opts = ();
 GetOptions( \%opts,
