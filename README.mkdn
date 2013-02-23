@@ -4,7 +4,7 @@ App::perlhl - application class for syntax highlighting Perl source code
 
 # VERSION
 
-version 0.004
+version 0.005
 
 # SYNOPSIS
 
@@ -24,8 +24,8 @@ of options:
 
 - html
 
-If true, the output will be an HTML fragment suitable for publishing as part
-of a web page. __NOTE:__ In the future, this might output a whole valid document.
+    If true, the output will be an HTML fragment suitable for publishing as part
+    of a web page. __NOTE:__ In the future, this might output a whole valid document.
 
 The default is to output ANSI colour codes suitable for printing to any
 reasonable shell or terminal (which probably means you have the one that'll
@@ -41,7 +41,7 @@ and an arrayref of filenames to highlight. If there are no filenames, defaults t
 
 - version
 
-If present, the application will print version data and exit.
+    If present, the application will print version data and exit.
 
 # AVAILABILITY
 

@@ -15,7 +15,6 @@ my %module_build_args = (
     "open" => 0
   },
   "configure_requires" => {
-    "ExtUtils::MakeMaker" => "6.30",
     "Module::Build" => "0.3601"
   },
   "dist_abstract" => "application class for syntax highlighting Perl source code",
@@ -23,7 +22,7 @@ my %module_build_args = (
     "Mike Doherty <doherty\@cpan.org>"
   ],
   "dist_name" => "App-perlhl",
-  "dist_version" => "0.004",
+  "dist_version" => "0.005",
   "license" => "perl",
   "module_name" => "App::perlhl",
   "recommends" => {},

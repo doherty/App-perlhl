@@ -1,6 +1,8 @@
 Revision history for Perl module App-perlhl
 
 {{$NEXT}}
+
+0.005     2013-02-23
     * End with a newline [GH#1]
 
 0.004     2012-05-12
