@@ -35,3 +35,4 @@ __DATA__
     [91mprint[0m [37mif[0m [34mm/[0m[34m[1;91m\Q[0m[32m$scalar[0m[1;91m\E[0m|hi[0m[34m/[0m[34mi[0m[37m;[0m
 [37m}[0m
 [91mclose[0m [91m*STDOUT[0m[37m;[0m
+

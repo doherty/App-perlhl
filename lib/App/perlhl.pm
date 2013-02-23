@@ -171,6 +171,7 @@ sub _do_highlighting {
             print $self->{formatter}->format_string while (<STDIN>);
         }
     }
+    print "\n";
 }
 
 1;

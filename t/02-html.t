@@ -34,3 +34,4 @@ __DATA__
     <span style="color:#300;">print</span> <span style="color:#000;">if</span> <span style="color:#00a;">m/</span><span style="color:#00a;"><span style="color:#800;">\Q</span><span style="color:#080;">$scalar</span><span style="color:#800;">\E</span>|hi</span><span style="color:#00a;">/</span><span style="color:#00a;">i</span><span style="color:#000;">;</span>
 <span style="color:#000;">}</span>
 <span style="color:#300;">close</span> <span style="color:#f03;">*STDOUT</span><span style="color:#000;">;</span>
+
