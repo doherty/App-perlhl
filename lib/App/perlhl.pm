@@ -2,6 +2,7 @@ package App::perlhl;
 use strict;
 use warnings;
 use v5.10.1;
+no warnings 'experimental::smartmatch';
 use Syntax::Highlight::Perl::Improved 1.01 ();
 use Term::ANSIColor 3.00 ();
 
