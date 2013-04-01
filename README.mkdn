@@ -4,7 +4,7 @@ App::perlhl - application class for syntax highlighting Perl source code
 
 # VERSION
 
-version 0.005
+version 0.006
 
 # SYNOPSIS
 
@@ -45,7 +45,7 @@ and an arrayref of filenames to highlight. If there are no filenames, defaults t
 
 # AVAILABILITY
 
-The project homepage is [http://p3rl.org/App::perlhl](http://p3rl.org/App::perlhl).
+The project homepage is [http://metacpan.org/release/App-perlhl/](http://metacpan.org/release/App-perlhl/).
 
 The latest version of this module is available from the Comprehensive Perl
 Archive Network (CPAN). Visit [http://www.perl.com/CPAN/](http://www.perl.com/CPAN/) to find a CPAN
