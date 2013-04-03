@@ -17,7 +17,7 @@ my %module_build_args = (
     "Mike Doherty <doherty\@cpan.org>"
   ],
   "dist_name" => "App-perlhl",
-  "dist_version" => "0.006",
+  "dist_version" => "0.007",
   "license" => "perl",
   "module_name" => "App::perlhl",
   "recommends" => {},
@@ -27,6 +27,7 @@ my %module_build_args = (
     "Pod::Usage" => 0,
     "Syntax::Highlight::Perl::Improved" => "1.01",
     "Term::ANSIColor" => "3.00",
+    "if" => 0,
     "perl" => "v5.10.1",
     "strict" => 0,
     "warnings" => 0

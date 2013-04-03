@@ -28,6 +28,7 @@ my %WriteMakefileArgs = (
     "Pod::Usage" => 0,
     "Syntax::Highlight::Perl::Improved" => "1.01",
     "Term::ANSIColor" => "3.00",
+    "if" => 0,
     "strict" => 0,
     "warnings" => 0
   },
@@ -38,7 +39,7 @@ my %WriteMakefileArgs = (
     "Test::Output" => 0,
     "open" => 0
   },
-  "VERSION" => "0.006",
+  "VERSION" => "0.007",
   "test" => {
     "TESTS" => "t/*.t"
   }

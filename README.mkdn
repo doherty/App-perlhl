@@ -4,7 +4,7 @@ App::perlhl - application class for syntax highlighting Perl source code
 
 # VERSION
 
-version 0.006
+version 0.007
 
 # SYNOPSIS
 
