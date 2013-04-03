@@ -2,7 +2,7 @@ package App::perlhl;
 use strict;
 use warnings;
 use v5.10.1;
-no warnings 'experimental::smartmatch';
+no if ($] >= 5.017010), warnings => 'experimental::smartmatch';
 use Syntax::Highlight::Perl::Improved 1.01 ();
 use Term::ANSIColor 3.00 ();
 
