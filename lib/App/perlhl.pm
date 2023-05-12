@@ -1,6 +1,7 @@
 package App::perlhl;
 use strict;
 use warnings;
+no warnings 'deprecated';
 use v5.10.1;
 no if ($] >= 5.017010), warnings => 'experimental::smartmatch';
 use Syntax::Highlight::Perl::Improved 1.01 ();
